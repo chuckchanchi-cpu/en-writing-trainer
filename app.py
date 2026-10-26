@@ -19,6 +19,10 @@ import random
 import requests
 import streamlit as st
 
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+with open(os.path.join(BASE_DIR, "writing_bank.json"), encoding="utf-8") as f:
+    QUESTION_BANK = json.load(f)
+
 st.set_page_config(page_title="✍️ 英文寫作訓練", page_icon="✍️", layout="wide")
 
 # 將 Streamlit Secrets 注入環境變數
@@ -194,6 +198,26 @@ TASKS = [
         "prompt": "自選一個主題寫一段短文（80-120 字），例如：難忘的一天／我的寵物／一次冒險。請用晒下面嘅寫作元素！",
         "must": ["過去式敘事", "至少 1 個 simile", "至少 1 個 connective", "5W1H 擴句（原因/時間/地點）", "正面結尾", "80-120 字"],
     },
+    {
+        "id": "helping",
+        "name": "🤝 A Helping Hand（賣旗經歷）",
+        "prompt": (
+            "Last Saturday, you sold flags with your classmates to raise money for charity. Write a short story about this experience.（80-120 字，三段式）\n"
+            "第 1 段：setting（時間地點＋人物）｜第 2 段：賣旗經過（用 5W1H：when/where/how/why）＋一句對白\n"
+            "第 3 段：感受＋教訓（positive thinking）"
+        ),
+        "must": ["過去式敘事", "5W1H 擴句（when/where/how/why）", "形容詞（kind-hearted, generous）", "至少 1 個連接詞", "正面結尾", "80-120 字"],
+    },
+    {
+        "id": "chef",
+        "name": "👨‍🍳 A Day with the Super Chef（煮食日記）",
+        "prompt": (
+            "Yesterday, you tried to make chocolate cookies with your family. Write a diary entry about it.（80-120 字，三段式）\n"
+            "第 1 段：setting｜第 2 段：整餅步驟（用 first/next/then/finally）＋一句對話（正確標點）\n"
+            "第 3 段：感受＋教訓（I would keep trying!）"
+        ),
+        "must": ["日記格式（日期、Dear Diary）", "過去式敘事", "連接詞（first/next/then/finally）", "對白標點（驚嘆號）", "正面思維結尾", "80-120 字"],
+    },
 ]
 
 def ai_review(task, text):
@@ -218,17 +242,43 @@ with st.sidebar:
 st.title("✍️ 英文寫作訓練")
 st.caption("P.6 考試寫作 — 章節精華元素（Similes／Reported Speech／Past Tense／-ed -ing／Connectives／Story Structure／5W1H）")
 
+def build_drill_round(topics, count):
+    """由所選 topic 題庫 + 常設 DRILLS 抽題（題庫題目格式：["mc", q, ans, opts, hint]）"""
+    pool = []
+    for t in topics:
+        for item in QUESTION_BANK[t]["questions"]:
+            _, q, ans, opts, hint = item
+            pool.append([q, list(opts), ans, t, hint])
+    pool += DRILLS
+    random.shuffle(pool)
+    return pool[:count]
+
 if mode == "📖 技巧操練":
     if "wr_q" not in st.session_state:
         st.session_state.wr_q = []
         st.session_state.wr_checked = False
-    if st.button("🎲 生成操練題（10 題）", type="primary"):
-        st.session_state.wr_q = random.sample(DRILLS, min(10, len(DRILLS)))
-        st.session_state.wr_checked = False
-        st.rerun()
+    if "wr_topics" not in st.session_state:
+        st.session_state.wr_topics = list(QUESTION_BANK.keys())[:6]
+    st.markdown("**揀 Topic（可多選；常設「綜合操練題」會自動加入）：**")
+    topics = st.multiselect(
+        "Topic",
+        list(QUESTION_BANK.keys()),
+        format_func=lambda k: QUESTION_BANK[k]["name"],
+        default=list(QUESTION_BANK.keys())[:6],
+        key="wr_topics",
+        label_visibility="collapsed",
+    )
+    count = st.slider("每輪題數", 5, 20, 10, key="wr_count")
+    if st.button("🎲 生成操練題", type="primary"):
+        if not topics:
+            st.warning("⚠️ 請揀至少一個 Topic")
+        else:
+            st.session_state.wr_q = build_drill_round(topics, count)
+            st.session_state.wr_checked = False
+            st.rerun()
     qs = st.session_state.wr_q
     if not qs:
-        st.info("👈 㩒「生成操練題」開始！每題附「記得用」提醒。")
+        st.info("👈 揀 Topic → 㩒「生成操練題」開始！每題附「記得用」提醒。")
     else:
         for i, (q, opts, ans, tid, hint) in enumerate(qs):
             st.markdown(f"**{i+1}.** {q}")

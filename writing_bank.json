@@ -1,0 +1,746 @@
+{
+ "story": {
+  "name": "1️⃣ 故事結構（三段式）",
+  "date": "2026-09-24",
+  "questions": [
+   [
+    "mc",
+    "故事寫作一般分為幾多段？",
+    "三段：開頭、主體、結尾",
+    [
+     "三段：開頭、主體、結尾",
+     "一段長文",
+     "兩段：開頭和結尾",
+     "五段以上"
+    ],
+    "Paragraph 1 Opening / 2 Body / 3 Ending — 三段落係基本要求"
+   ],
+   [
+    "mc",
+    "第一段（Opening）必須包含甚麼？",
+    "故事的背景（時間地點）和人物",
+    [
+     "故事的背景（時間地點）和人物",
+     "故事的結局",
+     "教訓和感悟",
+     "食材清單"
+    ],
+    "Checklist: Opening 要寫 setting (time & place) + characters"
+   ],
+   [
+    "mc",
+    "結尾段（Ending）通常包含甚麼？",
+    "總結、感悟或教訓",
+    [
+     "總結、感悟或教訓",
+     "新角色出場",
+     "另一段對話",
+     "詳細描述圖片"
+    ],
+    "Ending 要總結故事＋帶出 moral lesson（教訓）"
+   ],
+   [
+    "mc",
+    "寫 Fiona 公主故事時，要用幾多段落？",
+    "四段（四幅圖各一段）",
+    [
+     "四段（四幅圖各一段）",
+     "一段",
+     "兩段",
+     "六段"
+    ],
+    "P.6 Checklist: Write in four paragraphs（圖 1-4 各配一段）"
+   ],
+   [
+    "mc",
+    "故事開頭常用邊個模板？",
+    "One day, [人物] was at [地方] at [時間]. Suddenly...",
+    [
+     "One day, [人物] was at [地方] at [時間]. Suddenly...",
+     "Finally, I learnt that...",
+     "First, we need...",
+     "In conclusion, ..."
+    ],
+    "Opening 模板：One day, [人物] was at [地方]. Suddenly, [事件]..."
+   ]
+  ]
+ },
+ "tense": {
+  "name": "2️⃣ 過去式敘事",
+  "date": "2026-09-24",
+  "questions": [
+   [
+    "mc",
+    "故事寫作主要用邊種時態？",
+    "過去式（Past Tense）",
+    [
+     "過去式（Past Tense）",
+     "現在式",
+     "將來式",
+     "現在進行式"
+    ],
+    "整個故事主要用過去式，保持時態一致"
+   ],
+   [
+    "mc",
+    "邊句正確用咗過去式？",
+    "Kathy had breakfast. Then she went to school.",
+    [
+     "Kathy had breakfast. Then she went to school.",
+     "Kathy have breakfast. Then she goes to school.",
+     "Kathy has breakfast. Then she go to school.",
+     "Kathy had breakfast. Then she goes to school."
+    ],
+    "過去式：had / went 都要係過去式，唔可以一時過去一時現在"
+   ],
+   [
+    "mc",
+    "「Fiona ___ as gentle as a lamb.」應填邊個？",
+    "was",
+    [
+     "was",
+     "is",
+     "are",
+     "be"
+    ],
+    "故事用過去式敘事 → There was / Fiona was"
+   ],
+   [
+    "mc",
+    "日記（Diary）通常用邊種時態寫？",
+    "過去式",
+    [
+     "過去式",
+     "現在式",
+     "將來式",
+     "現在進行式"
+    ],
+    "Checklist: Use the past tense to write the diary."
+   ],
+   [
+    "mc",
+    "邊句時態完全一致？",
+    "There was a beautiful princess called Fiona.",
+    [
+     "There was a beautiful princess called Fiona.",
+     "There is a beautiful princess called Fiona.",
+     "There was a beautiful princess calls Fiona.",
+     "There were a beautiful princess called Fiona."
+    ],
+    "There was + 單數名詞 + 過去式 called"
+   ]
+  ]
+ },
+ "punct": {
+  "name": "3️⃣ 對話標點",
+  "date": "2026-09-24",
+  "questions": [
+   [
+    "mc",
+    "「Don't worry____ said Mum.」空格應填邊個標點？",
+    "逗號 ,",
+    [
+     "逗號 ,",
+     "句號 .",
+     "問號 ?",
+     "唔使標點"
+    ],
+    "對話後嘅說明要加逗號：「Don't worry,」said Mum."
+   ],
+   [
+    "mc",
+    "邊句對話標點正確？",
+    "「Help! Help!」shouted Fiona.",
+    [
+     "「Help! Help!」shouted Fiona.",
+     "「Help! Help!」shouted Fiona",
+     "「Help! Help!」Shouted Fiona.",
+     "Help! Help! shouted Fiona."
+    ],
+    "對白用引號＋句末標點喺引號內，shouted 開頭唔使大寫"
+   ],
+   [
+    "mc",
+    "「Let me go!」呢句用咩標點表達強烈語氣？",
+    "驚嘆號 !",
+    [
+     "驚嘆號 !",
+     "句號 .",
+     "逗號 ,",
+     "分號 ;"
+    ],
+    "驚嘆號（exclamation mark）表強烈感情，Checklist 有提"
+   ],
+   [
+    "mc",
+    "邊句標點完全正確？",
+    "「I will help you,」he promised.",
+    [
+     "「I will help you,」he promised.",
+     "「I will help you」he promised.",
+     "「I will help you.」He promised.",
+     "I will help you, he promised."
+    ],
+    "對白引號內＋逗號＋說明（he promised 唔大寫）"
+   ]
+  ]
+ },
+ "ifclause": {
+  "name": "4️⃣ If 條件句",
+  "date": "2026-09-24",
+  "questions": [
+   [
+    "mc",
+    "If 條件句正確結構係？",
+    "If + 現在式, will + 原形動詞",
+    [
+     "If + 現在式, will + 原形動詞",
+     "If + will, 現在式",
+     "If + 過去式, will",
+     "If + 現在式, 過去式"
+    ],
+    "If clause 用現在式（present），main clause 用 will + 原形"
+   ],
+   [
+    "mc",
+    "邊句 If 條件句正確？",
+    "If I study, I will pass the exams.",
+    [
+     "If I study, I will pass the exams.",
+     "If I will study, I pass the exams.",
+     "If I studied, I will pass the exams.",
+     "If I study, I passed the exams."
+    ],
+    "If I study（現在式）+ I will pass（will + 原形）"
+   ],
+   [
+    "mc",
+    "「If she practices every day, she ___.」應填邊個？",
+    "will improve",
+    [
+     "will improve",
+     "improves",
+     "improved",
+     "is improving"
+    ],
+    "主句用 will + 原形 → will improve"
+   ],
+   [
+    "mc",
+    "邊個係錯誤嘅 If 句？",
+    "If I will go, I will join you.",
+    [
+     "If I will go, I will join you.",
+     "If I go, I will join you.",
+     "If it rains, we will stay home.",
+     "If she tries, she will succeed."
+    ],
+    "If 後面唔可以加 will！If + 現在式"
+   ]
+  ]
+ },
+ "soth": {
+  "name": "5️⃣ So that（目的）",
+  "date": "2026-09-24",
+  "questions": [
+   [
+    "mc",
+    "「I always watch English programmes, ___ I can improve my English.」應填邊個？",
+    "so that",
+    [
+     "so that",
+     "because",
+     "but",
+     "although"
+    ],
+    "so that 表目的：做某事嘅意圖（後面可以 can/will）"
+   ],
+   [
+    "mc",
+    "「so that」嘅用途係？",
+    "表達做某事嘅目的或意圖",
+    [
+     "表達做某事嘅目的或意圖",
+     "表達原因",
+     "連接相反概念",
+     "表達時間先後"
+    ],
+    "so that = 目的（以便、為了）；because 先係原因"
+   ],
+   [
+    "mc",
+    "邊句用 so that 正確？",
+    "He studies hard so that he can pass.",
+    [
+     "He studies hard so that he can pass.",
+     "He studies hard so that he passed.",
+     "He studies hard because so that he can pass.",
+     "He studies hard so that he will passed."
+    ],
+    "so that + can/will + 原形動詞"
+   ],
+   [
+    "mc",
+    "「so that」可以用邊個替換？",
+    "in order that",
+    [
+     "in order that",
+     "because",
+     "if",
+     "when"
+    ],
+    "in order that 同義，但 so that 更口語自然"
+   ]
+  ]
+ },
+ "conn": {
+  "name": "6️⃣ 連接詞（次序）",
+  "date": "2026-10-11",
+  "questions": [
+   [
+    "mc",
+    "以下邊組係連接詞（link up ideas）？",
+    "first / next / then / finally",
+    [
+     "first / next / then / finally",
+     "happily / excitedly / angrily",
+     "Okay! / Let's try! / replied",
+     "cookies / kitchen / birthday"
+    ],
+    "連接詞：first / next / then / after that / after / before / although / suddenly / finally"
+   ],
+   [
+    "mc",
+    "寫日記/故事時，次序連接詞放喺邊？",
+    "每個新步驟或情節嘅開頭",
+    [
+     "每個新步驟或情節嘅開頭",
+     "句尾",
+     "每段最後",
+     "唔需要用到"
+    ],
+    "First / Next / Then / Finally 引導每步發展，令文章連貫"
+   ],
+   [
+    "mc",
+    "「___ the witch came, Fiona was scared.」應填邊個？",
+    "Suddenly",
+    [
+     "Suddenly",
+     "Finally",
+     "First",
+     "Happily"
+    ],
+    "Suddenly（突然）帶出轉折情節；Finally 係總結"
+   ],
+   [
+    "mc",
+    "「After ___ the pills, she felt strange.」應填邊個？",
+    "taking",
+    [
+     "taking",
+     "took",
+     "take",
+     "takes"
+    ],
+    "After + V-ing（After taking the pills）"
+   ]
+  ]
+ },
+ "adv": {
+  "name": "7️⃣ 方式副詞",
+  "date": "2026-10-11",
+  "questions": [
+   [
+    "mc",
+    "「Happily」「excitedly」同「angrily」係邊種詞？",
+    "副詞（adverbs）",
+    [
+     "副詞（adverbs）",
+     "形容詞",
+     "連接詞",
+     "標點符號"
+    ],
+    "adverbs of manner = 形容詞 + -ly（happy → happily）"
+   ],
+   [
+    "mc",
+    "「The princess smiled ___.」應填邊個？",
+    "happily",
+    [
+     "happily",
+     "happy",
+     "happiness",
+     "happier"
+    ],
+    "修飾動詞 smiled → 副詞 happily"
+   ],
+   [
+    "mc",
+    "邊句副詞用法正確？",
+    "The witch laughed wickedly.",
+    [
+     "The witch laughed wickedly.",
+     "The witch laughed wicked.",
+     "The witch laugh wickedly.",
+     "The witch laughing wickedly."
+    ],
+    "修飾動詞 laugh → 副詞 wickedly（wicked + -ly）"
+   ],
+   [
+    "mc",
+    "「She sang ___.」應填邊個？",
+    "beautifully",
+    [
+     "beautifully",
+     "beautiful",
+     "beauty",
+     "beautify"
+    ],
+    "修飾動詞 sang → 副詞 beautifully"
+   ]
+  ]
+ },
+ "simile": {
+  "name": "8️⃣ Similes 明喻",
+  "date": "2026-10-26",
+  "questions": [
+   [
+    "mc",
+    "Simile 用邊兩個詞比較事物？",
+    "like 或 as",
+    [
+     "like 或 as",
+     "and 或 but",
+     "if 或 when",
+     "so 或 because"
+    ],
+    "Simile = 用 like / as 比較兩樣有共同特質嘅事物"
+   ],
+   [
+    "mc",
+    "「She is as sweet as ___」應填邊個？",
+    "honey",
+    [
+     "honey",
+     "silk",
+     "owl",
+     "rainbow"
+    ],
+    "as sweet as honey（15 個必學 similes 之一）"
+   ],
+   [
+    "mc",
+    "「The princess' hair is as smooth as ___」應填邊個？",
+    "silk",
+    [
+     "silk",
+     "rose",
+     "feather",
+     "snail"
+    ],
+    "as smooth as silk（工作紙例句）"
+   ],
+   [
+    "mc",
+    "「Fiona was as gentle as a ___」應填邊個？",
+    "lamb",
+    [
+     "lamb",
+     "devil",
+     "toad",
+     "peacock"
+    ],
+    "as gentle as a lamb（15 個必學 similes）"
+   ],
+   [
+    "mc",
+    "「He is as wise as an ___」應填邊個？",
+    "owl",
+    [
+     "owl",
+     "ant",
+     "snail",
+     "lark"
+    ],
+    "as wise as an owl（貓頭鷹＝智慧）"
+   ],
+   [
+    "mc",
+    "Simile 中間嘅形容詞要用邊種形式？",
+    "原形（as + adjective 原形 + as）",
+    [
+     "原形（as + adjective 原形 + as）",
+     "比較級",
+     "最高級",
+     "副詞"
+    ],
+    "⚠️ 易錯：as better as ❌；正確係 as + 原形 + as"
+   ],
+   [
+    "mc",
+    "「The witch is as cunning as a ___」應填邊個？",
+    "fox",
+    [
+     "fox",
+     "lamb",
+     "ant",
+     "lark"
+    ],
+    "as cunning as a fox（狐狸＝狡猾）"
+   ],
+   [
+    "mc",
+    "「The princess is as happy as a ___」應填邊個？",
+    "lark",
+    [
+     "lark",
+     "owl",
+     "snail",
+     "toad"
+    ],
+    "as happy as a lark（百靈鳥＝快樂）"
+   ]
+  ]
+ },
+ "report": {
+  "name": "9️⃣ Reported Speech（轉述）",
+  "date": "2026-10-22",
+  "questions": [
+   [
+    "mc",
+    "「The witch told Fiona ___ to escape.」應填邊個？",
+    "not",
+    [
+     "not",
+     "no",
+     "don't",
+     "doesn't"
+    ],
+    "轉述命令：told sb + not + to + 原形（told Fiona not to escape）"
+   ],
+   [
+    "mc",
+    "「Let me go!」轉述成 reported speech 係？",
+    "Fiona told the witch to let her go.",
+    [
+     "Fiona told the witch to let her go.",
+     "Fiona said the witch to let her go.",
+     "Fiona told the witch let me go.",
+     "Fiona told the witch to let me go."
+    ],
+    "轉述命令：told sb + to + 原形；me → her"
+   ],
+   [
+    "mc",
+    "「Don't try to escape.」轉述正確係？",
+    "The witch told Fiona not to try to escape.",
+    [
+     "The witch told Fiona not to try to escape.",
+     "The witch told Fiona don't try to escape.",
+     "The witch told Fiona not to escape try.",
+     "The witch told Fiona to not try escape."
+    ],
+    "否定命令：told sb + not + to + 原形"
+   ],
+   [
+    "mc",
+    "Reported speech 用喺故事寫作嘅作用？",
+    "轉述人物說話，令情節更生動",
+    [
+     "轉述人物說話，令情節更生動",
+     "代替所有對話",
+     "令文章變短",
+     "唔需要用到"
+    ],
+    "Checklist: 用 reported speech 轉述說話（The witch told Fiona not to escape）"
+   ]
+  ]
+ },
+ "pos": {
+  "name": "🔟 積極思維＋正面結局",
+  "date": "2026-09-24",
+  "questions": [
+   [
+    "mc",
+    "邊句展現積極思維（positive thinking）？",
+    "I would keep trying.",
+    [
+     "I would keep trying.",
+     "I will never make it.",
+     "It is too difficult for me.",
+     "We gave up at last."
+    ],
+    "Checklist: 用 positive thinking 結尾，例如 I would keep trying"
+   ],
+   [
+    "mc",
+    "以下邊個係正面詞彙？",
+    "thankful",
+    [
+     "thankful",
+     "selfish",
+     "greedy",
+     "wicked"
+    ],
+    "正面詞彙：thankful / grateful / hopeful / determined / optimistic / responsible"
+   ],
+   [
+    "mc",
+    "故事結尾嘅正確做法係？",
+    "加入感悟或教訓（moral lesson）",
+    [
+     "加入感悟或教訓（moral lesson）",
+     "只描述事件",
+     "突然結束",
+     "重複開頭"
+    ],
+    "Ending 要有感悟：From this experience, [人物] learnt that..."
+   ],
+   [
+    "mc",
+    "Fiona 故事可以帶出邊個教訓？",
+    "不要貪心，要感恩",
+    [
+     "不要貪心，要感恩",
+     "巫婆係壞人",
+     "公主好靚",
+     "皇宮好大"
+    ],
+    "Checklist 提示：not be greedy / be thankful / ... more important than ..."
+   ],
+   [
+    "mc",
+    "「This story teaches us to be ___」應填邊個？",
+    "kind and responsible",
+    [
+     "kind and responsible",
+     "rich and famous",
+     "fast and strong",
+     "quiet and shy"
+    ],
+    "正面品質結尾：This story teaches us to be kind / responsible..."
+   ]
+  ]
+ },
+ "expand": {
+  "name": "1️⃣1️⃣ 5W1H 擴句法",
+  "date": "2026-09-10",
+  "questions": [
+   [
+    "mc",
+    "5W1H 擴句法包括邊六個問題？",
+    "Who / What / When / Where / How / Why",
+    [
+     "Who / What / When / Where / How / Why",
+     "Who / When / Why / Because / So / If",
+     "What / How / Where / But / And / Or",
+     "When / Where / What / Who / Which / Whose"
+    ],
+    "5W1H：Who/What（主詞動作）、When（時間）、Where（地點）、How（方式感受）、Why（原因）"
+   ],
+   [
+    "mc",
+    "「Eva and I sold flags.」點樣加 When？",
+    "Eva and I sold flags today.",
+    [
+     "Eva and I sold flags today.",
+     "Eva and I sold flags Yuen Long.",
+     "Eva and I sold flags excitedly.",
+     "Eva and I sold flags for charity."
+    ],
+    "When = 時間（today / yesterday）"
+   ],
+   [
+    "mc",
+    "「We were selling flags ___ Yuen Long.」應填邊個？",
+    "in",
+    [
+     "in",
+     "on",
+     "at",
+     "for"
+    ],
+    "Where = 地點 → in Yuen Long"
+   ],
+   [
+    "mc",
+    "「Many ___ passersby came to us.」應填邊個形容詞？",
+    "kind-hearted",
+    [
+     "kind-hearted",
+     "wicked",
+     "greedy",
+     "naughty"
+    ],
+    "加形容詞令描寫更生動：Many kind-hearted and generous passersby came to us."
+   ],
+   [
+    "mc",
+    "擴句嘅目的是？",
+    "令句子更生動、詳細",
+    [
+     "令句子更生動、詳細",
+     "令句子更短",
+     "令句子更難",
+     "冇任何作用"
+    ],
+    "擴句（sentence expansion）令描寫由平淡變畫面感"
+   ]
+  ]
+ },
+ "diary": {
+  "name": "1️⃣2️⃣ 日記格式",
+  "date": "2026-10-11",
+  "questions": [
+   [
+    "mc",
+    "日記開頭段要寫啲咩？",
+    "setting：時間、地點和人物",
+    [
+     "setting：時間、地點和人物",
+     "結局",
+     "教訓",
+     "食材清單"
+    ],
+    "Checklist: 日記 Opening 寫 setting（time/place/characters）"
+   ],
+   [
+    "mc",
+    "日記/故事一般分幾多段？",
+    "三段：開頭、主體、結尾",
+    [
+     "三段：開頭、主體、結尾",
+     "一段",
+     "兩段",
+     "四段都唔得"
+    ],
+    "Paragraph 1 Opening / 2 Body / 3 Ending"
+   ],
+   [
+    "mc",
+    "評估卷日記題通常要求寫幾多字？",
+    "至少 80 字",
+    [
+     "至少 80 字",
+     "20 字",
+     "50 字",
+     "冇字數要求"
+    ],
+    "2026-10-18 評估 Section C：至少 80 字、30 分"
+   ],
+   [
+    "mc",
+    "寫日記要留意邊樣？",
+    "過去式＋連接詞＋正確標點＋正面結尾",
+    [
+     "過去式＋連接詞＋正確標點＋正面結尾",
+     "只用現在式",
+     "唔需要分段",
+     "用口語英文"
+    ],
+    "日記 = 過去式敘事 + connectives + punctuation + positive thinking"
+   ]
+  ]
+ }
+}
