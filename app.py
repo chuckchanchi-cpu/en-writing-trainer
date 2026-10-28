@@ -319,11 +319,12 @@ def ai_generate_drills(topics, count):
             continue
         # 統一 5 元組格式 [q, opts, ans, tid, hint]（同教材題一致，避免解包 ValueError）
         valid.append([q, opts, matched, "ai", hint + ("｜" + trap if trap else "")])
-    # 答案多樣性
+    # 答案多樣性（唔夠數用剩低題目補足，保證出足 count 題）
     n_distinct = len({v[2] for v in valid})
     max_repeat = max(1, -(-count // n_distinct)) if n_distinct else 1
     used = {}
     out_q = []
+    rest_q = []
     for v in valid:
         if len(out_q) >= count:
             break
@@ -331,6 +332,12 @@ def ai_generate_drills(topics, count):
         if used.get(a, 0) < max_repeat:
             used[a] = used.get(a, 0) + 1
             out_q.append(v)
+        else:
+            rest_q.append(v)
+    for v in rest_q:
+        if len(out_q) >= count:
+            break
+        out_q.append(v)
     return out_q[:count]
 
 def build_drill_round(topics, count):
