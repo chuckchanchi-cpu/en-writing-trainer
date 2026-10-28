@@ -242,6 +242,97 @@ with st.sidebar:
 st.title("✍️ 英文寫作訓練")
 st.caption("P.6 考試寫作 — 章節精華元素（Similes／Reported Speech／Past Tense／-ed -ing／Connectives／Story Structure／5W1H）")
 
+def _norm_en(s):
+    """正規化：去首尾空白、細寫、去標點、收斂空白，用嚟寬鬆比對答案"""
+    if s is None:
+        return ""
+    s = str(s).strip().lower()
+    s = re.sub(r"[.,!?;:'\"()\[\]]", "", s)
+    s = re.sub(r"\s+", " ", s)
+    return s.strip()
+
+def _match_option(ans, opts):
+    """模糊比對答案同選項：①A/B/C/D 代號對應 ②正規化一致 ③單向包含（選項完整喺答案入面、≥4 字元）"""
+    na = _norm_en(ans)
+    if not na:
+        return None
+    if na.upper() in ("A", "B", "C", "D") and len(opts) == 4:
+        return opts["ABCD".index(na.upper())]
+    for o in opts:
+        if _norm_en(o) == na:
+            return o
+    for o in opts:
+        no = _norm_en(o)
+        if len(na) >= 4 and len(no) >= 4 and no in na:
+            return o
+    return None
+
+def ai_generate_drills(topics, count):
+    """✨ AI 生成新題：按所選寫作元素生成英文文法題（同教材題一致嘅 5 元組格式）"""
+    base, key, model = get_api_config()
+    if not key:
+        st.error("⚠️ 未偵測到 API key — 請設定 OPENAI_API_KEY（app Settings → Secrets）")
+        return []
+    topic_desc = "；".join(QUESTION_BANK[t]["name"] for t in topics)
+    prompt = (
+        "You are an experienced Primary 6 English teacher in Hong Kong. "
+        f"Create grammar questions about these writing elements: {topic_desc}\n\n"
+        "Requirements:\n"
+        "1. Multiple-choice only: 1 correct + 3 plausible distractors (same category, commonly confused).\n"
+        "2. Question text in English; hint and trap in Traditional Chinese (書面語) explaining the grammar rule and the common mistake.\n"
+        "3. \"answer\" must be EXACTLY one of the 4 options (no A/B/C/D prefix, no extra words).\n"
+        "4. The answer must NOT appear inside the question text (use a blank _____ ).\n"
+        "5. SINGLE-CORRECT-ANSWER RULE: exactly one correct option per question.\n"
+        "6. Only use the textbook writing elements listed above — do not invent new grammar rules.\n"
+        "7. Vary the answers across the set: avoid repeating the same answer word.\n\n"
+        "Output ONLY a JSON array, nothing else:\n"
+        '[{"question":"...","options":["...","...","...","..."],"answer":"...","hint":"...","trap":"..."}]'
+    )
+    out = silra_chat([{"role": "user", "content": prompt}], max_tokens=3000)
+    if not out:
+        return []
+    m = re.search(r"\[.*\]", out, re.S)
+    if not m:
+        return []
+    try:
+        data = json.loads(m.group(0))
+    except Exception:
+        return []
+    if not isinstance(data, list):
+        return []
+    valid = []
+    for item in data:
+        if not isinstance(item, dict):
+            continue
+        q = str(item.get("question") or "").strip()
+        opts = [str(o).strip() for o in (item.get("options") or []) if str(o).strip()]
+        ans = str(item.get("answer") or "").strip()
+        hint = str(item.get("hint") or "").strip()
+        trap = str(item.get("trap") or "").strip()
+        if len(opts) != 4 or not q:
+            continue
+        matched = _match_option(ans, opts)
+        if matched is None:
+            continue
+        # 答案唔准漏喺題目（whole-word + 忽略大小寫）
+        if re.search(r"(?<![A-Za-z])" + re.escape(matched) + r"(?![A-Za-z])", q, re.IGNORECASE):
+            continue
+        # 統一 5 元組格式 [q, opts, ans, tid, hint]（同教材題一致，避免解包 ValueError）
+        valid.append([q, opts, matched, "ai", hint + ("｜" + trap if trap else "")])
+    # 答案多樣性
+    n_distinct = len({v[2] for v in valid})
+    max_repeat = max(1, -(-count // n_distinct)) if n_distinct else 1
+    used = {}
+    out_q = []
+    for v in valid:
+        if len(out_q) >= count:
+            break
+        a = v[2]
+        if used.get(a, 0) < max_repeat:
+            used[a] = used.get(a, 0) + 1
+            out_q.append(v)
+    return out_q[:count]
+
 def build_drill_round(topics, count):
     """由所選 topic 題庫 + 常設 DRILLS 抽題（題庫題目格式：["mc", q, ans, opts, hint]）"""
     pool = []
@@ -269,9 +360,19 @@ if mode == "📖 技巧操練":
         label_visibility="collapsed",
     )
     count = st.slider("每輪題數", 5, 20, 10, key="wr_count")
+    gen_mode = st.radio("生成模式", ["📖 教材原題（即時）", "✨ AI 生成新題"], key="wr_genmode")
     if st.button("🎲 生成操練題", type="primary"):
         if not topics:
             st.warning("⚠️ 請揀至少一個 Topic")
+        elif gen_mode.startswith("✨"):
+            with st.spinner("✨ AI 生成緊新題…（約 10–30 秒）"):
+                qs_ai = ai_generate_drills(topics, count)
+            if qs_ai:
+                st.session_state.wr_q = qs_ai
+                st.session_state.wr_checked = False
+                st.rerun()
+            else:
+                st.error("❌ AI 生成唔到合格題目 — 再試一次？")
         else:
             st.session_state.wr_q = build_drill_round(topics, count)
             st.session_state.wr_checked = False
