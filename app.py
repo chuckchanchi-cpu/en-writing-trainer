@@ -375,7 +375,12 @@ if mode == "📖 技巧操練":
             with st.spinner("✨ AI 生成緊新題…（約 10–30 秒）"):
                 qs_ai = ai_generate_drills(topics, count)
             if qs_ai:
-                st.session_state.wr_q = qs_ai
+                # AI 唔夠數 → 用教材題補足，保證出夠要求題數
+                if len(qs_ai) < count:
+                    extra = [q for q in build_drill_round(topics, count * 2)
+                             if q[0] not in {x[0] for x in qs_ai}]
+                    qs_ai = qs_ai + extra
+                st.session_state.wr_q = qs_ai[:count]
                 st.session_state.wr_checked = False
                 st.rerun()
             else:
