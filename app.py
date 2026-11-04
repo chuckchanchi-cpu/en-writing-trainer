@@ -26,9 +26,12 @@ with open(os.path.join(BASE_DIR, "writing_bank.json"), encoding="utf-8") as f:
 st.set_page_config(page_title="✍️ 英文寫作訓練", page_icon="✍️", layout="wide")
 
 # 將 Streamlit Secrets 注入環境變數
-if hasattr(st, "secrets") and len(st.secrets) > 0:
+# ⚠️ 安全讀 Secrets：冇設定 Secrets 唔好炸 app（len(st.secrets) 喺新版 Streamlit 會拋異常）
+try:
     for k in st.secrets.keys():
         os.environ[k] = str(st.secrets[k])
+except Exception:
+    pass
 
 def get_api_config():
     base = os.environ.get("OPENAI_API_BASE", "").rstrip("/")
