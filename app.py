@@ -223,6 +223,14 @@ TASKS = [
     },
 ]
 
+TASK_SAMPLES = {
+    "fiona": "Molly told her family not to be afraid. 'Leo is as gentle as a lamb,' she said politely. Her family smiled and welcomed Leo. I learnt that we should not judge others by their looks.",
+    "diary": "Dear Diary, Last Saturday I met my friend Amy on the way to choir practice. We shared a packet of French fries at the snack shop. I was as happy as a bird. It was a wonderful afternoon!",
+    "free": "Last summer, I went to the beach with my family. The water was as blue as the sky. I built a sandcastle and felt as proud as a peacock. It was a day to remember.",
+    "helping": "Last Sunday, I helped an old lady carry her shopping bags. She thanked me with a warm smile. I felt happy because helping others is meaningful.",
+    "chef": "Today I cooked tomato egg stir-fry for my family. Mum asked me to stir the eggs carefully. Dad said the food was delicious. I was as busy as a bee but very proud of my dish!",
+}
+
 def ai_review(task, text):
     must = "；".join(task["must"])
     prompt = (
@@ -233,7 +241,7 @@ def ai_review(task, text):
         "【文法修正】列出文法/拼寫錯誤（原句 → 改正）\n"
         "【評語】2-3 句總評（做得好嘅地方＋要改善嘅地方）\n"
         "【升級示範】揀 1-2 句改寫成更好嘅版本（用上教過嘅元素）\n"
-        "【分數】滿分 10 分"
+        "【分數】滿分 10 分（評分從寬鼓勵學生：寫得完整有用到要求元素就 7 分起；良好 8-9；優秀 10。總評先讚做得好嘅地方，再提一個改進建議）"
     )
     return silra_chat([{"role": "user", "content": prompt}], max_tokens=2000)
 
@@ -436,6 +444,9 @@ else:  # ✍️ 寫作任務
     task = next(t for t in TASKS if t["name"] == choice)
     st.subheader(task["name"])
     st.markdown(task["prompt"])
+    sample = task.get("sample") or TASK_SAMPLES.get(task["id"], "")
+    if sample:
+        st.info(f"✍️ 范文參考（一小段）：\n\n{sample}")
     st.markdown("**📋 必用元素：** " + "｜".join(task["must"]))
     text = st.text_area("✍️ 你嘅作文：", height=220, placeholder="Write your story here...（80-120 words）")
     wc = len([w for w in re.findall(r"[A-Za-z']+", text)])
